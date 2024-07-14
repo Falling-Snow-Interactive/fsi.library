@@ -1,0 +1,17 @@
+{
+  "name": "com.fallingsnowinteractive.library",
+  "version": "1.0.0",
+  "displayName": "FSI Library",
+  "description": "Package for a simple library system.",
+  "unity": "2019.1",
+  "unityRelease": "0b5",
+  "keywords": [
+    "Library",
+    "ScriptableObject",
+  ],
+  "author": {
+    "name": "Kira Dinan",
+    "email": "kiradinan.dev@gmail.com"
+  },
+  "hideInEditor": false
+}
