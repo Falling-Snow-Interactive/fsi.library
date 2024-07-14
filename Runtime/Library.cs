@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Libraries
+namespace Fsi.Libraries
 {
     public interface ILibrary<in TKey, TValue, TObj> 
         where TValue : ILibraryEntry<TKey, TObj>

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Libraries
+namespace Fsi.Libraries
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class LibraryAttribute : PropertyAttribute

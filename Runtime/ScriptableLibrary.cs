@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Libraries
+namespace Fsi.Libraries
 {
     public abstract class ScriptableLibrary<TKey, TEntry, TObj>
         : ScriptableObject, ILibrary<TKey, TEntry, TObj> 

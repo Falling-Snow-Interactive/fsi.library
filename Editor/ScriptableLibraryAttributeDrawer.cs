@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using Gameplay.Enemies;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Libraries.Editor
+namespace Fsi.Libraries.Editor
 {
     public abstract class ScriptableLibraryAttributeDrawer<TKey, TEntry, TObj> : PropertyDrawer
         where TEntry : ILibraryEntry<TKey, TObj>
@@ -17,7 +16,7 @@ namespace Libraries.Editor
             var library = AssetDatabase.LoadAssetAtPath<ScriptableLibrary<TKey, TEntry, TObj>>(LibraryPath);
         
             List<string> keyStrings = new();
-            var currentObj = property.objectReferenceValue as EnemyController;
+            var currentObj = property.objectReferenceValue;
             string selected = "No object selected";
         
             foreach (var entry in library.Entries)
