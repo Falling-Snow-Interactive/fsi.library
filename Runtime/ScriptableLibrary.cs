@@ -3,13 +3,25 @@ using UnityEngine;
 
 namespace Fsi.Libraries
 {
-    public abstract class ScriptableLibrary<TKey, TEntry, TObj>
-        : ScriptableObject, ILibrary<TKey, TEntry, TObj> 
-            where TEntry : ILibraryEntry<TKey, TObj> 
-            where TObj : Object
+    public abstract class ScriptableLibrary<TKey, TValue>
+        : ScriptableObject, ILibrary<TKey, TValue> 
+            where TValue : ILibraryEntry<TKey, TValue> 
     {
-        public abstract List<TEntry> Entries { get; }
+        public abstract List<TValue> Entries { get; }
 
-        public abstract bool TryGetValue(TKey key, out TEntry value);
+        public virtual bool TryGetValue(TKey key, out TValue value)
+        {
+            foreach (TValue v in Entries)
+            {
+                if (key.Equals(v.Key))
+                {
+                    value = v.Value;
+                    return true;
+                }
+            }
+
+            value = default;
+            return false;
+        }
     }
 }

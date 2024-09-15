@@ -3,17 +3,16 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Fsi.Libraries.Editor
+namespace Fsi.Libraries
 {
-    public abstract class ScriptableLibraryAttributeDrawer<TKey, TEntry, TObj> : PropertyDrawer
-        where TEntry : ILibraryEntry<TKey, TObj>
-        where TObj : Object
+    public abstract class ScriptableLibraryAttributeDrawer<TKey, TEntry> : PropertyDrawer
+        where TEntry : Object, ILibraryEntry<TKey, TEntry>
     {
         protected abstract string LibraryPath { get; }
 
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
-            var library = AssetDatabase.LoadAssetAtPath<ScriptableLibrary<TKey, TEntry, TObj>>(LibraryPath);
+            var library = AssetDatabase.LoadAssetAtPath<ScriptableLibrary<TKey, TEntry>>(LibraryPath);
         
             List<string> keyStrings = new();
             var currentObj = property.objectReferenceValue;
