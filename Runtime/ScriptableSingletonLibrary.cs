@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Fsi.Libraries
 {
-    public abstract class ScriptableLibrary<TKey, TValue>
-        : ScriptableObject, ILibrary<TKey, TValue> 
-            where TValue : ILibraryEntry<TKey, TValue> 
+    public class ScriptableSingletonLibrary<TKey, TValue> 
+        : ScriptableSingleton<ScriptableSingletonLibrary<TKey, TValue>>, ILibrary<TKey, TValue> 
+        where TValue : ILibraryEntry<TKey, TValue> 
     {
         [Header("Library")]
         

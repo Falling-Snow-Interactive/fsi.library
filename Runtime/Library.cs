@@ -1,14 +1,22 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Fsi.Libraries
 {
-    public interface ILibrary<in TKey, TValue> 
+    public interface ILibrary<TKey, TValue> 
         where TValue : ILibraryEntry<TKey, TValue>
     {
         public List<TValue> Entries { get; }
 
-        public bool TryGetValue(TKey key, out TValue value);
+        public List<TKey> GetKeys()
+        {
+            List<TKey> keys = new List<TKey>();
+            foreach (var entry in Entries)
+            {
+                keys.Add(entry.Key);
+            }
+
+            return keys;
+        }
     }
     
     public interface ILibraryEntry<out TKey, out TValue>
