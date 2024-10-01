@@ -1,6 +1,6 @@
 {
   "name": "com.fallingsnowinteractive.library",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "FSI Library",
   "description": "Package for a simple library system.",
   "unity": "2019.1",
